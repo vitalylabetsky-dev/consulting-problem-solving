@@ -16,25 +16,17 @@ Every step follows the same rhythm: you provide direction, Claude builds, you re
 ### The 8-Step Process
 
 ```
- FRAME                    ANALYZE                   DELIVER
- ─────                    ───────                   ───────
- ┌─────────────┐         ┌─────────────┐          ┌─────────────┐
- │ 1. Define   │────────▶│ 5. Analyze  │─────────▶│ 7. Recommend│
- │    Problem   │         │             │          │             │
- └──────┬──────┘         └──────┬──────┘          └──────┬──────┘
-        │                       │                        │
- ┌──────▼──────┐         ┌──────▼──────┐          ┌──────▼──────┐
- │ 2. Structure │         │ 6. Synthe-  │          │ 8. Communi- │
- │   (MECE)    │         │    size     │          │    cate     │
- └──────┬──────┘         └─────────────┘          └─────────────┘
-        │                                          Slides or Docs
- ┌──────▼──────┐
- │ 3. Prioritize│
- └──────┬──────┘
-        │
- ┌──────▼──────┐
- │ 4. Work Plan │
- └─────────────┘
+┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐
+│  1. Define   │─▶│ 2. Structure │─▶│ 3. Prioritize│─▶│ 4. Work Plan │
+│    Problem   │  │    (MECE)    │  │              │  │              │
+└──────────────┘  └──────────────┘  └──────────────┘  └──────┬───────┘
+       FRAME ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┼ ─ ─ ─
+                                                             │
+┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────▼───────┐
+│8. Communicate│◀─│ 7. Recommend │◀─│ 6. Synthesize│◀─│  5. Analyze  │
+│              │  │              │  │              │  │              │
+└──────────────┘  └──────────────┘  └──────────────┘  └──────────────┘
+     DELIVER              ◀─  ─  ─  ANALYZE  ─  ─  ─  ─  ─  ─  ─  ─
 ```
 
 You can run the full process end-to-end, or invoke any single step on its own.
