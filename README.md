@@ -37,18 +37,200 @@ Every step follows the same rhythm: you provide direction, Claude builds, you re
  └─────────────┘
 ```
 
-| Step | What Happens | You Get |
-|:----:|:-------------|:--------|
-| **1** | Define the core question, scope, and success criteria | Problem statement (`.md`) |
-| **2** | Decompose into a MECE issue tree with testable hypotheses | Issue tree (`.md` + `.svg`) |
-| **3** | Rank branches by impact and feasibility | Priority matrix (`.md`) |
-| **4** | Map analyses to questions, data sources, and dependencies | Work plan (`.xlsx`) |
-| **5** | Execute each analysis, test hypotheses, track sources | Analysis workbook (`.xlsx`) + findings (`.md`) |
-| **6** | Weave findings into a coherent answer (not just a summary) | Synthesis document (`.md`) |
-| **7** | Build phased, evidence-backed recommendations with impact sizing | Recommendation brief (`.md`) |
-| **8** | Shape the narrative and produce presentation-ready content | Slide content or document content (`.md`) |
-
 You can run the full process end-to-end, or invoke any single step on its own.
+
+---
+
+### Step 1: Define the Problem
+
+> *Deliverable: Problem statement (`.md`)*
+
+Problem framing is half the solution. Claude asks you to describe the situation, what success looks like, what's in and out of scope, key constraints, and any initial hypotheses you already have. From your answers, Claude extracts a **precise key question** — a single sentence that the entire engagement will answer — and structures a problem definition document covering context, scope boundaries, success criteria, stakeholders, and constraints.
+
+This is the most important step. A well-framed question prevents weeks of analysis pointed at the wrong target.
+
+**You provide:** The situation in your own words, what "solved" looks like, boundaries, hunches.
+**Claude produces:** A structured problem statement anchored to one key question. You review and approve before anything else begins.
+
+---
+
+### Step 2: Structure the Problem
+
+> *Deliverable: Issue tree (`.md` + optional `.svg`)*
+
+Claude decomposes the key question into an **issue tree** — a hierarchical breakdown where every level is MECE (Mutually Exclusive, Collectively Exhaustive). No overlaps, no gaps.
+
+You choose the decomposition framework, or Claude suggests one based on the problem type:
+
+| Framework | Best For |
+|:----------|:---------|
+| **Profitability** (Revenue vs. Cost) | Margin compression, P&L diagnosis |
+| **Market Entry** (Attractiveness vs. Capability vs. Economics) | New market or segment evaluation |
+| **Operational Improvement** (Quick wins vs. Medium-term vs. Structural) | Efficiency and process problems |
+| **Customer/Growth** (Existing vs. New customers vs. New products) | Growth strategy, retention |
+| **Custom** | Anything that doesn't fit a standard frame |
+
+Each major branch gets a **testable hypothesis** — a specific, falsifiable claim that analysis will confirm or disprove. The tree typically goes 2-3 levels deep with explicit MECE validation at every level.
+
+---
+
+### Step 3: Prioritize
+
+> *Deliverable: Priority matrix (`.md`)*
+
+Not every branch of the issue tree deserves equal attention. Claude helps you assess each branch on two dimensions:
+
+- **Impact**: How much would solving this branch move the needle on the key question?
+- **Feasibility**: Can we actually investigate this with available data, time, and resources?
+
+Branches are ranked into priority tiers:
+
+| Tier | Criteria | Action |
+|:-----|:---------|:-------|
+| **P1** | High impact + high/medium feasibility | Investigate fully |
+| **P2** | High impact + low feasibility, or medium impact + high feasibility | Find proxies or defer |
+| **P3+** | Lower combinations | Park with rationale |
+
+The output is typically 2-4 P1 focus areas. If you have more than that, you haven't prioritized enough. Nothing gets parked without your explicit agreement, and parked items include the rationale so they can be revisited.
+
+---
+
+### Step 4: Build the Work Plan
+
+> *Deliverable: Work plan (`.xlsx`)*
+
+Claude translates priority branches into a concrete analysis plan — a spreadsheet with three tabs:
+
+**Summary tab** — Project name, key question, workstream overview.
+
+**Detailed Analysis Plan** — Each row is one analysis:
+
+| Column | Purpose |
+|:-------|:--------|
+| Workstream | Which P1 branch this serves |
+| Analysis Name | Descriptive label |
+| Question Answered | The specific question this analysis resolves |
+| Approach | Quantitative (trends, segmentation, benchmarking, financial modeling) or qualitative (best practice, process mapping, risk assessment) |
+| Data Needed | What inputs are required |
+| Source | Where the data comes from |
+| Dependencies | Which other analyses must complete first |
+| Hypothesis | What we expect to find |
+
+**Data Inventory tab** — Surfaces data gaps and workarounds upfront so you aren't surprised mid-analysis.
+
+A typical engagement has 15-25 analyses. More than 30 suggests insufficient prioritization. Dependencies are mapped so independent analyses can run in parallel while gating analyses happen first.
+
+---
+
+### Step 5: Conduct Analyses
+
+> *Deliverables: Analysis workbook (`.xlsx`) + Findings document (`.md`)*
+
+This is where the analytical work happens. For each analysis in the work plan, Claude:
+
+1. States the question being answered
+2. Executes the analysis (with your data, or with clearly flagged assumptions if data isn't available)
+3. Applies the **"so what?" test** — what does this finding mean for the key question?
+4. Assesses the hypothesis — **Confirmed**, **Partially confirmed**, or **Disproven**
+5. Identifies follow-up questions
+
+**Data quality is ruthlessly enforced:**
+
+- Every data point gets a source citation (e.g., "Company 10-K FY2024", "Bureau of Labor Statistics")
+- Data older than 18 months in fast-moving domains gets flagged
+- Numbers are cross-checked for internal consistency
+- When data isn't available, Claude never silently estimates — it presents suggested values with reasoning and sensitivity ranges (low / base / high)
+- Two solid, cross-validated data points beat ten loosely sourced ones
+
+The **analysis workbook** has a summary tab (one row per analysis with finding and confidence level), detailed tabs per analysis, and an assumptions tab. The **findings document** is a narrative that connects findings to the key question, identifies emerging themes, and surfaces open questions.
+
+---
+
+### Step 6: Synthesize Findings
+
+> *Deliverable: Synthesis document (`.md`)*
+
+Synthesis is not summary. Summary says "here's what we found." Synthesis says "here's what it all **means together**."
+
+Claude lays out all findings and looks for patterns:
+
+| Pattern | What It Means |
+|:--------|:-------------|
+| **Convergent** | Multiple independent findings point the same direction — strongest basis for action |
+| **Tension** | Findings point different directions — synthesis resolves the contradiction |
+| **Sequencing** | Findings suggest a time-ordered path — do A before B |
+| **Conditional** | The answer depends on an unresolved variable — recommendations must account for both scenarios |
+
+The output follows a clear structure:
+
+- **The Answer** — 1-2 sentences, decision-oriented, directly addressing the key question
+- **Supporting Logic** — 3-5 insights, each backed by specific evidence from Step 5
+- **How the Pieces Fit Together** — the narrative thread connecting insights into a coherent argument
+- **What Could Make Us Wrong** — a risk table with likelihood, impact, and mitigation for each
+- **Confidence Assessment** — overall confidence, strongest and weakest parts of the argument
+
+Claude asks for your interpretive lens: what jumps out to you, what surprises you, how stakeholders might react, and whether there are framing sensitivities that matter.
+
+---
+
+### Step 7: Develop Recommendations
+
+> *Deliverable: Recommendation brief (`.md`)*
+
+Every recommendation must pass the **SMART+E test**: Specific, Measurable, Actionable, Relevant, Time-bound, and Evidence-backed.
+
+Claude presents **2-3 options** before finalizing — each with pros, cons, and expected impact — and leans toward one with a rationale, but you make the call.
+
+The approved recommendation is structured as:
+
+- **Core Recommendation** — the headline action with rationale, impact estimate, and confidence level
+- **Supporting Recommendations** (1-3) — each with What / Why / Expected Impact / Timeline / Owner
+- **Implementation Roadmap** — phased so each stage delivers independent value:
+
+| Phase | Timeline | Focus |
+|:------|:---------|:------|
+| **Immediate** | 0-3 months | Quick wins that build momentum and credibility |
+| **Near-term** | 3-12 months | Structural changes with measurable impact |
+| **Medium-term** | 1-3 years | Transformational moves that compound earlier gains |
+
+- **Impact Summary** — investment required, annual impact, payback period, and confidence per recommendation
+- **Risks and Mitigations** — anticipated objections ("tried before", "too risky", "too expensive", "politically difficult") with pre-built responses
+- **Next Steps** — 3-5 concrete actions with owners
+
+The brief also includes a **slide-ready summary** appendix — imperative statements, one-line impacts, and phase-by-phase actions — ready for Step 8.
+
+---
+
+### Step 8: Communicate
+
+> *Deliverable: Slide content (`.md`) or vertical document content (`.md`)*
+
+The final step turns analysis into a compelling narrative. You choose the output format:
+
+**Slides track** — Distilled, scannable, one message per slide. Action titles (complete sentences stating the insight, not topic labels like "Market Analysis"). Bullets capped at 12 words. Tables and structured elements instead of walls of text. Every slide with numbers includes a source footer.
+
+**Vertical document track** — Narrative prose with full argument depth. Section headings that advance the argument. Paragraphs that follow a contract: topic sentence, evidence (2-3 sentences), implication. Active voice, short sentences for key claims, specific language throughout.
+
+Both tracks go through a **mandatory gate structure**:
+
+**Gate 1 — Storyline.** Claude presents the headline sequence and narrative structure. You choose from six playbooks:
+
+| Playbook | Structure | Best For |
+|:---------|:----------|:---------|
+| **Answer-First** (Pyramid) | Conclusion &rarr; Arguments &rarr; Evidence | Aligned audiences, senior leaders, time-constrained |
+| **Evidence-First** (Build) | Observations &rarr; Pattern &rarr; Conclusion | Skeptical audiences who need to see the proof |
+| **Narrative Arc** (SCR) | Situation &rarr; Complication &rarr; Resolution | Persuasion and buy-in |
+| **Transformation** | Current State &rarr; Future State &rarr; Path | Change management |
+| **Comparative Evaluation** | Options &rarr; Criteria &rarr; Winner | Board decisions between alternatives |
+| **Sequential/Process** | Phase 1 &rarr; Phase 2 &rarr; ... &rarr; Phase N | Implementation plans |
+
+You approve the storyline before anything is written.
+
+**Gate 2 — Sceptical Review.** A separate review agent stress-tests the approved storyline against the synthesis and recommendations. It checks for common-sense failures, "so what?" gaps, number sanity, logical coherence, data-dump tendencies, and vague recommendations. Results come back as a numbered list of proposed changes with severity ratings (MUST FIX / SHOULD FIX / CONSIDER). You accept or reject each item — nothing is changed without your approval.
+
+**Gate 2b — Content** (slides track only). Claude distills all content per the slide content rules and saves it to the engagement folder. You review and revise until approved.
+
+After all gates pass, the approved content is handed off to a downstream builder skill for visual rendering and styling.
 
 ---
 
